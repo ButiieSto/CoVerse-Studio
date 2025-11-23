@@ -49,6 +49,14 @@ header {
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* subtle hover animation for glowing logo */
+.logo:hover {
+  transform: translateY(-1px) scale(1.03);
+  filter: drop-shadow(0 0 10px rgba(20, 163, 184, 0.5));
 }
 
 .logo-img {
@@ -102,6 +110,39 @@ header {
 
 .nav-cta:hover {
   opacity: 0.9;
+}
+
+/* HAMBURGER MENU */
+.menu-toggle {
+  display: none; /* hidden on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0.25rem;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--navy);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* hamburger animation when open */
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-4px) rotate(-45deg);
 }
 
 /* MAIN LAYOUT */
@@ -385,14 +426,56 @@ footer {
   margin-top: 2rem;
 }
 
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.footer-logo-img {
+  height: 32px;
+  width: auto;
+  display: block;
+  opacity: 0.9;
+}
+
 /* RESPONSIVE */
+.desktop-only {
+  display: inline-flex;
+}
+
 @media (max-width: 768px) {
   .hero {
     grid-template-columns: 1fr;
     padding: 1.4rem;
   }
 
+  /* hide desktop nav, show hamburger */
   .nav-links {
+    position: absolute;
+    top: 64px;
+    right: 1.5rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    display: none;
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .desktop-only {
     display: none;
   }
 
