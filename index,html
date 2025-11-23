@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoVerse Studio – Create Together. Launch Better.</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0b1b3b;
+      --teal: #14a3b8;
+      --bg: #f7fafc;
+      --text: #1f2933;
+      --accent-soft: #e0f6f8;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .logo-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--navy);
+    }
+
+    .logo-sub {
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover {
+      background: var(--accent-soft);
+    }
+
+    .nav-cta {
+      padding: 0.45rem 1rem;
+      background: var(--teal);
+      color: white;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+      padding: 2rem 1.5rem;
+      border-radius: 24px;
+      background: radial-gradient(circle at top left, var(--accent-soft), white);
+      margin-top: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 3vw + 1rem, 2.8rem);
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-small {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--navy);
+      border: 1px solid #d1d5db;
+    }
+
+    .hero-tagline {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 18px;
+      padding: 1.2rem;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--teal);
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-intro {
+      font-size: 0.95rem;
+      color: #4b5563;
+      max-width: 620px;
+      margin-bottom: 1.5rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      font-size: 0.9rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      color: var(--navy);
+    }
+
+    .card p {
+      margin-bottom: 0.6rem;
+      color: #4b5563;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: var(--accent-soft);
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .price {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-top: 0.3rem;
+    }
+
+    .list {
+      list-style: none;
+      margin: 0.2rem 0 0.6rem;
+      padding-left: 0;
+    }
+
+    .list li::before {
+      content: "•";
+      margin-right: 0.4rem;
+      color: var(--teal);
+    }
+
+    .why-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .portfolio-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+    }
+
+    .portfolio-item a {
+      font-size: 0.85rem;
+      text-decoration: underline;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .about-highlight {
+      background: white;
+      padding: 1rem;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      font-size: 0.9rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    form {
+      background: white;
+      padding: 1rem;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+      font-size: 0.9rem;
+    }
+
+    .field {
+      margin-bottom: 0.8rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.5rem 0.6rem;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding: 1.4rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .about-layout,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <span class="logo-title">CoVerse Studio</span>
+        <span class="logo-sub">Create Together. Launch Better.</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        Start a Project
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div>
+        <h1>Create Together. Launch Better.</h1>
+        <p class="hero-sub">
+          Friendly, professional websites for startups and small businesses in the City of Matlosana and beyond.
+        </p>
+        <p class="hero-small">
+          We partner with you to turn your ideas into a website that feels like you — modern, easy to use, and ready to help your business grow.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            Start a Project
+          </button>
+          <button class="btn-secondary" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">
+            View Our Work
+          </button>
+        </div>
+        <p class="hero-tagline">
+          You focus on running your business. We’ll handle the website.
+        </p>
+      </div>
+      <aside class="hero-card">
+        <span class="hero-badge">
+          <span class="badge-dot"></span>
+          For startups & small businesses
+        </span>
+        <p><strong>Based in the City of Matlosana</strong>, CoVerse Studio creates websites that help customers find you, trust you, and contact you easily.</p>
+        <p>We work closely with local shops, service providers, and growing brands that want a website they can be proud of.</p>
+      </aside>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <h2 class="section-title">Website services for growing businesses</h2>
+      <p class="section-intro">
+        Whether you’re just starting out or already running a small business, we create websites that help customers find you, trust you, and get in touch without stress.
+      </p>
+
+      <div class="services-grid">
+        <div class="card">
+          <span class="tag">For new businesses</span>
+          <h3>Brand Launch Website</h3>
+          <p>Simple, clean websites for businesses that need a professional online presence.</p>
+          <ul class="list">
+            <li>1–5 pages (Home, About, Services, Contact, etc.)</li>
+            <li>Mobile-friendly design</li>
+            <li>Basic contact form</li>
+            <li>Social media links</li>
+          </ul>
+          <p class="price">From R7,500</p>
+        </div>
+
+        <div class="card">
+          <span class="tag">For growing teams</span>
+          <h3>Business Growth Website</h3>
+          <p>Stronger online presence with more pages and features.</p>
+          <ul class="list">
+            <li>Up to 10 pages</li>
+            <li>Blog or news section (optional)</li>
+            <li>Advanced enquiry or booking forms</li>
+            <li>Basic on-page SEO setup</li>
+          </ul>
+          <p class="price">From R15,000</p>
+        </div>
+
+        <div class="card">
+          <span class="tag">Sell online</span>
+          <h3>Online Store (eCommerce)</h3>
+          <p>Sell products or services online with a simple, secure store.</p>
+          <ul class="list">
+            <li>Product pages & categories</li>
+            <li>Shopping cart & checkout</li>
+            <li>Payment integration (where available)</li>
+            <li>Training on how to manage products</li>
+          </ul>
+          <p class="price">From R20,000</p>
+        </div>
+
+        <div class="card">
+          <span class="tag">Ongoing support</span>
+          <h3>Website Care Plans</h3>
+          <p>Keep your website secure, updated, and supported every month.</p>
+          <ul class="list">
+            <li>Software & security updates</li>
+            <li>Small content changes</li>
+            <li>Backups & basic support</li>
+          </ul>
+          <p class="price">From R400 / month</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section id="why">
+      <h2 class="section-title">Why choose CoVerse Studio?</h2>
+      <p class="section-intro">
+        We don’t just build websites. We build relationships with the people behind the business, so your website feels personal and true to you.
+      </p>
+
+      <div class="why-list">
+        <div class="card">
+          <h3>We listen first</h3>
+          <p>We take time to understand your business, your community, and your customers before we start designing.</p>
+        </div>
+        <div class="card">
+          <h3>We create with you</h3>
+          <p>You’re involved in key decisions. We share drafts, ask for feedback, and adjust together.</p>
+        </div>
+        <div class="card">
+          <h3>We care after launch</h3>
+          <p>We don’t disappear once the site is live. Our care plans keep your site healthy and updated.</p>
+        </div>
+        <div class="card">
+          <h3>Local and accessible</h3>
+          <p>Based in the City of Matlosana, we’re easy to reach on email or WhatsApp and happy to work with businesses anywhere.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <h2 class="section-title">Recent work</h2>
+      <p class="section-intro">
+        Here’s a look at one of the projects we’ve worked on. More case studies and demo projects are coming soon.
+      </p>
+
+      <div class="card portfolio-item">
+        <h3>Lithako Edu – Education & Tutoring</h3>
+        <p>A modern website designed to build trust with parents and clearly present programmes and services.</p>
+        <ul class="list">
+          <li>Clean layout with simple navigation</li>
+          <li>Easy-to-read programme information</li>
+          <li>Mobile-friendly for busy parents</li>
+        </ul>
+        <a href="https://lithakoedu.netlify.app/" target="_blank" rel="noopener">View Live Website</a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 class="section-title">About CoVerse Studio</h2>
+      <div class="about-layout">
+        <div>
+          <p class="section-intro">
+            CoVerse Studio is a small, independent web studio helping startups, local shops, and small businesses show up online with confidence.
+          </p>
+          <p style="font-size:0.9rem; margin-bottom:0.6rem;">
+            Our name “CoVerse” comes from the idea of co-creating your digital universe — building your online presence together, one step at a time.
+          </p>
+          <p style="font-size:0.9rem;">
+            We believe that great ideas should not be held back by bad websites. That’s why we focus on friendly communication, clear steps, and simple explanations — especially for business owners who are not “tech people”.
+          </p>
+        </div>
+        <aside class="about-highlight">
+          <h3 style="margin-bottom:0.4rem;">Meet the founder</h3>
+          <p><strong>Hi, I’m Tokelo.</strong></p>
+          <p style="margin-bottom:0.5rem;">
+            I started CoVerse Studio to help business owners in the City of Matlosana and beyond get websites they’re proud to share.
+          </p>
+          <p style="font-size:0.85rem; color:#6b7280;">
+            When we work together, you can expect regular updates, honest advice, and a website that reflects who you are and what you offer.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Let’s start your project</h2>
+      <p class="section-intro">
+        Tell us a bit about your business and what you need. We’ll follow up with ideas and the next steps.
+      </p>
+
+      <div class="contact-grid">
+        <form>
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input id="name" type="text" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="business">Business Name (optional)</label>
+            <input id="business" type="text" placeholder="Your business or project name">
+          </div>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input id="email" type="email" placeholder="you@example.com" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input id="phone" type="tel" placeholder="+27 ...">
+          </div>
+          <div class="field">
+            <label for="service">What do you need help with?</label>
+            <select id="service">
+              <option>New website</option>
+              <option>Website redesign</option>
+              <option>Online store</option>
+              <option>Website care / updates</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell us a bit about your business and what you have in mind."></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Send message</button>
+        </form>
+
+        <div>
+          <div class="card">
+            <h3>Contact details</h3>
+            <p><strong>Email:</strong> <a href="mailto:coversestudio94@gmail.com">coversestudio94@gmail.com</a></p>
+            <p><strong>Phone / WhatsApp:</strong> +27 64 087 8175</p>
+            <p><strong>Location:</strong> City of Matlosana, South Africa</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    CoVerse Studio · Create Together. Launch Better. · City of Matlosana, South Africa
+  </footer>
+</body>
+</html>
