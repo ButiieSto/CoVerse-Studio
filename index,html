@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CoVerse Studio – Create Together. Launch Better.</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -15,7 +18,7 @@
   <!-- NAVBAR -->
   <header>
     <div class="nav">
-      <div class="logo">
+      <div class="logo" onclick="window.location.hash='#home'">
         <!-- Make sure logo.png is in the same folder as this file -->
         <img src="logo.png" alt="CoVerse Studio logo" class="logo-img">
         <div class="logo-text">
@@ -24,14 +27,21 @@
         </div>
       </div>
 
-      <nav class="nav-links">
+      <nav class="nav-links" id="main-nav">
         <a href="#services">Services</a>
         <a href="#portfolio">Work</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
 
-      <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
+      <!-- Mobile hamburger -->
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <button class="nav-cta desktop-only" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">
         Start a Project
       </button>
     </div>
@@ -284,7 +294,26 @@
   </main>
 
   <footer>
-    CoVerse Studio · Create Together. Launch Better. · City of Matlosana, South Africa
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="logo.png" alt="CoVerse Studio logo" class="footer-logo-img">
+      </div>
+      <p>CoVerse Studio · Create Together. Launch Better. · City of Matlosana, South Africa</p>
+    </div>
   </footer>
+
+  <!-- Mobile menu script -->
+  <script>
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.getElementById("main-nav");
+
+    if (toggle && nav) {
+      toggle.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("nav-open");
+        toggle.classList.toggle("open", isOpen);
+        toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    }
+  </script>
 </body>
 </html>
