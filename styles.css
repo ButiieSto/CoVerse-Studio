@@ -42,16 +42,20 @@ header {
   align-items: center;
   gap: 0.6rem;
   cursor: pointer;
-  transition: .2s ease;
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
+
 .logo:hover {
-  transform: scale(1.03);
-  filter: drop-shadow(0 0 10px rgba(20,163,184,0.5));
+  transform: translateY(-1px) scale(1.03);
+  filter: drop-shadow(0 0 10px rgba(20, 163, 184, 0.5));
 }
 
 .logo-img {
   height: 40px;
+  width: auto;
+  display: block;
 }
+
 
 .logo-title {
   font-weight: 700;
