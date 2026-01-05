@@ -1,298 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CoVerse Studio – Create Together. Launch Better.</title>
+  <meta charset="UTF-8">
+  <title>CoVerse Studio | Practical Tech Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Practical tech setup, optimisation, and support for individuals and small businesses in South Africa.">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-
-  <!-- Google Font -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- NAVBAR -->
-  <header>
-    <div class="nav">
-      <!-- LEFT: text brand -->
-      <div class="brand" onclick="window.location.hash='#home'">
-        <div class="brand-title">CoVerse Studio</div>
-        <div class="brand-sub">Create Together. Launch Better.</div>
-      </div>
 
-      <!-- MIDDLE: links -->
-      <nav class="nav-links" id="main-nav">
-        <a href="#services">Services</a>
-        <a href="#portfolio">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <img src="logo.png" alt="CoVerse Studio Logo" class="logo">
+      <a href="#contact" class="nav-cta">Book a Tech Session</a>
+    </div>
+  </nav>
 
-      <!-- RIGHT: CTA + circle logo + mobile menu -->
-      <div class="nav-right">
-        <button
-          class="nav-cta desktop-only"
-          onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })"
-        >
-          Start a Project
-        </button>
-
-        <!-- circle logo icon on the right -->
-        <img
-          class="nav-logo-icon"
-          alt="CoVerse Studio logo"
-          src="https://raw.githubusercontent.com/ButiieSto/CoVerse-Studio/main/logo.png"
-        />
-
-        <button
-          class="menu-toggle"
-          aria-label="Toggle navigation"
-          aria-expanded="false"
-          aria-controls="main-nav"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>
+        Practical tech setup, optimisation, and support<br>
+        for individuals and small businesses
+      </h1>
+      <p>
+        I help people and small teams clean up, secure, and simplify their technology
+        so it actually works — without stress or confusion.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Book a Tech Session</a>
+        <a href="#services" class="btn-secondary">View Services</a>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <div>
-        <h1>Create Together. Launch Better.</h1>
-        <p class="hero-sub">
-          Friendly, professional websites for startups and small businesses in the City of Matlosana and beyond.
-        </p>
-        <p class="hero-small">
-          We partner with you to turn your ideas into a website that feels like you — modern, easy to use, and ready
-          to help your business grow.
-        </p>
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <h2>Services</h2>
+    <p class="section-intro">
+      Clear, practical tech services with fixed pricing.
+    </p>
 
-        <div class="hero-buttons">
-          <button
-            class="btn-primary"
-            onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })"
-          >
-            Start a Project
-          </button>
-          <button
-            class="btn-secondary"
-            onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })"
-          >
-            View Our Work
-          </button>
-        </div>
+    <div class="services-grid">
 
-        <p class="hero-tagline">
-          You focus on running your business. We’ll handle the website.
-        </p>
-      </div>
-
-      <aside class="hero-card">
-        <span class="hero-badge">
-          <span class="badge-dot"></span>
-          For startups & small businesses
-        </span>
+      <div class="service-card">
+        <h3>Personal Tech Optimisation</h3>
         <p>
-          <strong>Based in the City of Matlosana</strong>, CoVerse Studio creates websites that help customers find
-          you, trust you, and contact you easily.
+          A once-off session to clean up, secure, and simplify your personal devices
+          and accounts.
         </p>
-        <p>
-          We work closely with local shops, service providers, and growing brands that want a website they can be
-          proud of.
-        </p>
-      </aside>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services">
-      <h2 class="section-title">Website services for growing businesses</h2>
-      <p class="section-intro">
-        Whether you’re just starting out or already running a small business, we create websites that help customers
-        find you, trust you, and get in touch without stress.
-      </p>
-
-      <div class="services-grid">
-        <div class="card">
-          <span class="tag">For new businesses</span>
-          <h3>Brand Launch Website</h3>
-          <p>Simple, clean websites for businesses that need a professional online presence.</p>
-          <ul class="list">
-            <li>1–5 pages</li>
-            <li>Mobile-friendly design</li>
-            <li>Basic contact form</li>
-            <li>Social media links</li>
-          </ul>
-          <p class="price">From R7,500</p>
-        </div>
-
-        <div class="card">
-          <span class="tag">For growing teams</span>
-          <h3>Business Growth Website</h3>
-          <p>Stronger online presence with more pages and features.</p>
-          <ul class="list">
-            <li>Up to 10 pages</li>
-            <li>Blog or news section (optional)</li>
-            <li>Advanced enquiry or booking forms</li>
-            <li>Basic SEO setup</li>
-          </ul>
-          <p class="price">From R15,000</p>
-        </div>
-
-        <div class="card">
-          <span class="tag">Sell online</span>
-          <h3>Online Store (eCommerce)</h3>
-          <p>Sell products or services online with a simple, secure store.</p>
-          <ul class="list">
-            <li>Products & categories</li>
-            <li>Shopping cart & checkout</li>
-            <li>Payments setup</li>
-            <li>Training to manage store</li>
-          </ul>
-          <p class="price">From R20,000</p>
-        </div>
-
-        <div class="card">
-          <span class="tag">Care</span>
-          <h3>Website Care Plans</h3>
-          <p>Keep your website secure, updated, and supported every month.</p>
-          <ul class="list">
-            <li>Updates & maintenance</li>
-            <li>Small content changes</li>
-            <li>Backups & support</li>
-          </ul>
-          <p class="price">From R400 / month</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY -->
-    <section id="why">
-      <h2 class="section-title">Why choose CoVerse Studio?</h2>
-      <p class="section-intro">
-        We don’t just build websites — we build relationships, so your online presence feels personal and true to you.
-      </p>
-
-      <div class="why-list">
-        <div class="card">
-          <h3>We listen first</h3>
-          <p>We learn about your business and customers before designing anything.</p>
-        </div>
-        <div class="card">
-          <h3>We create with you</h3>
-          <p>Your ideas guide the direction — we adjust together.</p>
-        </div>
-        <div class="card">
-          <h3>We care after launch</h3>
-          <p>We stay with you through updates and growth.</p>
-        </div>
-        <div class="card">
-          <h3>Local and accessible</h3>
-          <p>Easy support via WhatsApp or email.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PORTFOLIO -->
-    <section id="portfolio">
-      <h2 class="section-title">Recent work</h2>
-      <p class="section-intro">Here’s one of our projects. More coming soon!</p>
-
-      <div class="card portfolio-item">
-        <h3>Lithako Edu – Tutoring Services</h3>
-        <p>Modern website to build trust with parents and schools.</p>
-        <ul class="list">
-          <li>Clear service information</li>
-          <li>Fast and mobile-friendly</li>
-          <li>Easy navigation</li>
+        <ul>
+          <li>Hybrid (remote or in-person)</li>
+          <li>Full audit & cleanup</li>
+          <li>Clear recommendations</li>
         </ul>
-        <a href="https://lithakoedu.netlify.app" target="_blank" rel="noopener">View Project</a>
+        <strong>R1,500 (once-off)</strong>
       </div>
-    </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <h2 class="section-title">About CoVerse Studio</h2>
-      <div class="about-layout">
-        <div>
-          <p class="section-intro">
-            A small independent web studio helping business owners show up online with confidence.
-          </p>
-          <p class="text-normal">
-            The name “CoVerse” comes from co-creating your digital universe — building your website together.
-          </p>
-        </div>
-
-        <aside class="about-highlight">
-          <p><strong>Hi, I’m Tokelo.</strong></p>
-          <p class="text-normal">
-            I help businesses in the City of Matlosana and beyond get websites they’re proud of.
-          </p>
-        </aside>
+      <div class="service-card">
+        <h3>Monthly Tech Care (Individuals)</h3>
+        <p>
+          Ongoing support so you’re not stuck when tech issues come up.
+        </p>
+        <ul>
+          <li>Up to 2 support requests per month</li>
+          <li>Remote help & advice</li>
+          <li>Month-to-month</li>
+        </ul>
+        <strong>R500 per month</strong>
       </div>
-    </section>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2 class="section-title">Let’s start your project</h2>
-      <p class="section-intro">Share your idea — we’ll reply with friendly, clear steps.</p>
-
-      <div class="contact-grid">
-        <form>
-          <div class="field">
-            <label>Your Name</label>
-            <input type="text" required />
-          </div>
-          <div class="field">
-            <label>Email</label>
-            <input type="email" required />
-          </div>
-          <div class="field">
-            <label>Message</label>
-            <textarea required></textarea>
-          </div>
-          <button type="submit" class="btn-primary">Send message</button>
-        </form>
-
-        <div class="card">
-          <p><strong>Email:</strong> coversestudio94@gmail.com</p>
-          <p><strong>WhatsApp:</strong> +27 64 087 8175</p>
-          <p><strong>City of Matlosana, SA</strong></p>
-        </div>
+      <div class="service-card">
+        <h3>Small Business Tech Setup</h3>
+        <p>
+          A once-off setup to clean up and structure your business technology properly.
+        </p>
+        <ul>
+          <li>Accounts & access cleanup</li>
+          <li>Security basics</li>
+          <li>Clear systems & rules</li>
+        </ul>
+        <strong>R2,500 (once-off)</strong>
       </div>
-    </section>
-  </main>
 
-  <footer>
-    <div class="footer-inner">
-      <img
-        class="footer-logo-img"
-        alt="CoVerse Studio logo"
-        src="https://raw.githubusercontent.com/ButiieSto/CoVerse-Studio/main/logo.png"
-      />
-      <p>© CoVerse Studio • Create Together. Launch Better.</p>
+      <div class="service-card">
+        <h3>Small Business Tech Care</h3>
+        <p>
+          Ongoing tech support to keep your business running smoothly.
+        </p>
+        <ul>
+          <li>Priority remote support</li>
+          <li>Preventative guidance</li>
+          <li>Tech decision support</li>
+        </ul>
+        <strong>R1,500 per month</strong>
+      </div>
+
     </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">1. Get in touch</div>
+      <div class="step">2. Book your session or setup</div>
+      <div class="step">3. Get clean, working tech</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>Get Tech Help</h2>
+    <p>
+      To book a session or ask a question, contact me directly:
+    </p>
+
+    <div class="contact-box">
+      <p><strong>Email:</strong> coversestudio94@gmail.com</p>
+      <p><strong>WhatsApp / Phone:</strong> (Add your number)</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="logo.png" alt="CoVerse Studio Logo" class="footer-logo">
+    <p>© CoVerse Studio — Practical Tech Support</p>
   </footer>
 
-  <!-- Mobile Menu Script -->
-  <script>
-    const toggle = document.querySelector(".menu-toggle");
-    const nav = document.getElementById("main-nav");
-    toggle.addEventListener("click", () => {
-      const open = nav.classList.toggle("nav-open");
-      toggle.classList.toggle("open", open);
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    });
-  </script>
 </body>
 </html>
