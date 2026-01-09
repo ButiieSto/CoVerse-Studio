@@ -20,7 +20,7 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
       <h1>
@@ -49,81 +49,69 @@
 
       <div class="service-card">
         <h3>Personal Tech Optimisation</h3>
-        <p>
-          A once-off session to clean up, secure, and simplify your personal devices
-          and accounts.
-        </p>
-        <ul>
-          <li>Hybrid (remote or in-person)</li>
-          <li>Full audit & cleanup</li>
-          <li>Clear recommendations</li>
-        </ul>
-        <strong>R1,500 (once-off)</strong>
+        <p>A once-off session to clean up and simplify your tech.</p>
+        <strong>R1,500</strong>
       </div>
 
       <div class="service-card">
         <h3>Monthly Tech Care (Individuals)</h3>
-        <p>
-          Ongoing support so you’re not stuck when tech issues come up.
-        </p>
-        <ul>
-          <li>Up to 2 support requests per month</li>
-          <li>Remote help & advice</li>
-          <li>Month-to-month</li>
-        </ul>
-        <strong>R500 per month</strong>
+        <p>Ongoing personal tech support.</p>
+        <strong>R500 / month</strong>
       </div>
 
       <div class="service-card">
         <h3>Small Business Tech Setup</h3>
-        <p>
-          A once-off setup to clean up and structure your business technology properly.
-        </p>
-        <ul>
-          <li>Accounts & access cleanup</li>
-          <li>Security basics</li>
-          <li>Clear systems & rules</li>
-        </ul>
-        <strong>R2,500 (once-off)</strong>
+        <p>One-time cleanup and structuring.</p>
+        <strong>R2,500</strong>
       </div>
 
       <div class="service-card">
         <h3>Small Business Tech Care</h3>
-        <p>
-          Ongoing tech support to keep your business running smoothly.
-        </p>
-        <ul>
-          <li>Priority remote support</li>
-          <li>Preventative guidance</li>
-          <li>Tech decision support</li>
-        </ul>
-        <strong>R1,500 per month</strong>
+        <p>Ongoing business tech support.</p>
+        <strong>R1,500 / month</strong>
       </div>
 
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="how-it-works">
-    <h2>How It Works</h2>
-    <div class="steps">
-      <div class="step">1. Get in touch</div>
-      <div class="step">2. Book your session or setup</div>
-      <div class="step">3. Get clean, working tech</div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
+  <!-- CONTACT / NETLIFY FORM -->
   <section id="contact" class="contact">
     <h2>Get Tech Help</h2>
-    <p>
-      To book a session or ask a question, contact me directly:
-    </p>
+    <p>Fill in the form below and I’ll get back to you.</p>
 
-    <div class="contact-box">
-      <p><strong>Email:</strong> coversestudio94@gmail.com</p>
-      <p><strong>WhatsApp / Phone:</strong> (Add your number)</p>
-    </div>
+    <!-- Netlify Form -->
+    <form name="contact" method="POST" data-netlify="true" class="contact-form">
+      <input type="hidden" name="form-name" value="contact">
+
+      <label>
+        Full Name
+        <input type="text" name="name" required>
+      </label>
+
+      <label>
+        Email Address
+        <input type="email" name="email" required>
+      </label>
+
+      <label>
+        What do you need help with?
+        <select name="service" required>
+          <option value="">Select a service</option>
+          <option>Personal Tech Optimisation (R1,500)</option>
+          <option>Monthly Tech Care (R500/month)</option>
+          <option>Small Business Tech Setup (R2,500)</option>
+          <option>Small Business Tech Care (R1,500/month)</option>
+        </select>
+      </label>
+
+      <label>
+        Message
+        <textarea name="message" rows="5" required></textarea>
+      </label>
+
+      <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+
   </section>
 
   <!-- FOOTER -->
